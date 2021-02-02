@@ -1,0 +1,15 @@
+# local vscode config
+.vscode
+
+# virtual environment
+venv
+
+# python bytecodes
+__pycache__
+
+# jupyter checkpoints
+t-*.ipynb
+.ipynb_checkpoints
+
+# database
+*.db
