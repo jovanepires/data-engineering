@@ -12,4 +12,4 @@ t-*.ipynb
 .ipynb_checkpoints
 
 # database
-*.db
+data/db/*.db
