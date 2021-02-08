@@ -13,3 +13,6 @@ t-*.ipynb
 
 # database
 data/db/*.db
+
+# files
+data/files/*.json
