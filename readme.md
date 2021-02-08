@@ -58,6 +58,37 @@ $ chmod +x ./start.sh
 $ ./start.sh
 ```
 
+### Análise 
+
+Quantidade de usuários logados no mês de novembro de 2017?
+
+```sql
+SELECT count(*) 
+FROM fact_logged_student fls;
+INNER JOIN dim_time as dt ON flc.time_id = dt.id
+WHERE dt.month = 11 AND dt.year = 2017
+```
+
+Quantidade de usuários logados no quarto trimestre do ano?
+
+```sql
+SELECT count(*) 
+FROM fact_logged_student as fls 
+INNER JOIN dim_time as dt ON flc.time_id = dt.id
+WHERE dt.quarter = 4
+```
+
+Quantidade de usuários que assinaram o plano no quarto trimestre do ano?
+
+```sql
+SELECT count(*) 
+FROM fact_subscribed_student as fss 
+INNER JOIN dim_time as dt ON fss.time_id = dt.id
+WHERE dt.quarter = 4
+```
+
+> A modelagem das consultas pode ser feita conforme a matriz, ou com auxilio de alguma ferramenta (ex.: PowerBI, Tableau).
+
 
 ### Melhorias   
 - Pré-processamento para valores nulos
@@ -73,7 +104,7 @@ Nessa etapa será usada a BASE B, composta de apenas um Dataset:
 - **part-[0000x].json** - Eventos de Page View que nossos usuários realizaram no dia 16 de Novembro de 2017. Esse Dataset foi dividido em alguns arquivos.
 
 
-## Análise Exploratória
+### Análise Exploratória
 
 Na análise exploratória, foi observada a seguinte estrutura dos eventos: 
 
@@ -155,7 +186,7 @@ Utilizando as funções de agregação do `pyspark`, podemos ver que o curso com
 +-------------------------------------+------+
 ```
 
-## Executando 
+### Executando 
 
 Utilizando docker para executar o `eda.ipynb`: 
 
@@ -165,7 +196,7 @@ docker run --name sparkbook -p 8881:8888 -v "$PWD":/home/jovyan/work jupyter/pys
 
 O comando acima irá baixar a imagem (na primeira execução), e executar o *container*. Para acessar o `Jupyter Lab`, basta digitar o endereço `http://localhost:8881` no navegador.
 
-## Melhorias
+### Melhorias
 
 - Pré-processamento para valores nulos
 - Buscar mais insights relacionando as fontes de dados
