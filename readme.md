@@ -3,10 +3,14 @@
 O Passei Direto é uma plataforma aberta com um modelo de negócios freemium, baseado em
 assinaturas. É muito importante para a saúde do negócio entendermos bem as características
 dos nossos usuários, principalmente os pagantes.
-Nessa etapa será usada a BASE A, composta pelos seguintes Datasets:  
+
+> Os arquivos dos `datasets` devem ser armazenados diretamente na pasta `/data/files`, partindo da raiz do projeto.
 
 
 ## ETAPA 1 
+
+Nessa etapa será usada a BASE A, composta pelos seguintes Datasets:  
+  
 
 - **students.json** - Amostra de usuários que acessaram o Passei Direto no mês de
 Novembro de 2017. Todos os outros datasets referenciam esses usuários
